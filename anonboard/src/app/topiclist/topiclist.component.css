@@ -1,6 +1,37 @@
+.titlecontainer{
+    text-align:center;
+}
+.titlecontainer h1{
+    font-family:Arial Black;
+    font-size:35px;
+}
 table{
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
     table-layout: fixed;
+    margin:auto;
+}
+/*tr:nth-child(2n+3) {
+    background-color: rgb(247, 247, 247);
+}*/
+.topiclistheader{
+    background-color: #dddddd;
+}
+.topiclistheader td{
+    border: 1px solid gray;
+    text-align: center;
+    padding: 8px;
+}
+.topictitleheader{
+    width:70%;
+}
+.topiclistfooter{
+    height:30px;
+    background-color: #dddddd;
+}
+.topiclistfooter td{
+    border: 1px solid gray;
+    text-align: center;
+    padding: 8px;
 }

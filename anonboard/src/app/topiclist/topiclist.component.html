@@ -1,11 +1,17 @@
-<p>
-  topiclist works!
-</p>
+<div class="titlecontainer">
+    <h1>
+      Anonymous
+    </h1>
+</div>
 <table>
-    <tr>
-      <td>Topic Title</td>
-      <td>Posts</td>
-      <td>Last Post</td>
+    <tr class="topiclistheader">
+      <td class="topictitleheader">Topic Title</td>
+      <td class="postsheader">Posts</td>
+      <td class="lastpostheader">Last Post</td>
     </tr>
-    <tr app-topicitem></tr>
+    <tr app-topicitem *ngFor="let topic of topics" [topic]="topic">
+    </tr>
+    <tr class="topiclistfooter">
+        <td colspan="3"></td>
+    </tr>
 </table>

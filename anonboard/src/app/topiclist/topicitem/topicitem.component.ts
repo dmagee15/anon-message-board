@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'tr[app-topicitem]',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topicitem.component.css']
 })
 export class TopicitemComponent implements OnInit {
+  @Input() topic:topic;
+  topictitle: string = '';
+  numposts: number = 5;
+  lastpost: string = '7';
 
   constructor() { }
 

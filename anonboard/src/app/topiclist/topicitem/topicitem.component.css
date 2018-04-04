@@ -1,5 +1,15 @@
-.topicitem td{
+td{
     border: 1px solid gray;
     text-align: left;
     padding: 8px;
+    height: 30px;
+}
+.topicitemtitle{
+    padding-left:20px;
+}
+.topicnumposts{
+    text-align:center;
+}
+.topiclastpost{
+    text-align:center;
 }
