@@ -9,7 +9,10 @@
       <td class="postsheader">Posts</td>
       <td class="lastpostheader">Last Post</td>
     </tr>
-    <tr app-topicitem *ngFor="let topic of topics" [topic]="topic">
+    <tr *ngFor="let topic of topics">
+      <td class="topicitemtitle">{{ topic.title }}</td>
+      <td class="topicnumposts">{{ topic.numposts }}</td>
+      <td class="topiclastpost">{{ topic.lastpost }}</td>
     </tr>
     <tr class="topiclistfooter">
         <td colspan="3"></td>

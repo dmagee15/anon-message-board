@@ -35,3 +35,24 @@ table{
     text-align: center;
     padding: 8px;
 }
+.topicitemtitle{
+    padding-left:20px;
+    border: 1px solid gray;
+    text-align: left;
+    padding: 8px;
+    height: 30px;
+}
+.topicnumposts{
+    text-align:center;
+    border: 1px solid gray;
+    text-align: left;
+    padding: 8px;
+    height: 30px;
+}
+.topiclastpost{
+    text-align:center;
+    border: 1px solid gray;
+    text-align: left;
+    padding: 8px;
+    height: 30px;
+}
