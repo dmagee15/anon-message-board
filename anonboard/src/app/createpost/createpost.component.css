@@ -5,3 +5,41 @@
     font-family:Arial Black;
     font-size:35px;
 }
+.contentcontainer{
+    width:100%;
+}
+.textareacontainer{
+    text-align:center;
+}
+.textareacontainer textarea{
+    width:494px;
+    height: 200px;
+    resize: none;
+}
+.topictitleinputcontainer{
+    width: 100%;
+    text-align:center;
+    margin-top:50px;
+}
+.topictitleinputcontainer input{
+    width: 494px;
+}
+.directionscontainer{
+    text-align:center;
+}
+.buttoncontainer{
+    width:100%;
+    text-align:center;
+    padding-top:15px;
+}
+.buttoninnercontainer{
+    width:500px;
+    text-align:right;
+    display:inline-block;
+}
+.buttoninnercontainer button{
+    background:none;
+    border: 1px solid black;
+    padding: 5px 10px 5px 10px;
+    font-size: 15px;
+}

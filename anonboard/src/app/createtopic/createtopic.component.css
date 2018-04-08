@@ -12,8 +12,9 @@
     text-align:center;
 }
 .textareacontainer textarea{
-    width:500px;
+    width:494px;
     height: 200px;
+    resize: none;
 }
 .topictitleinputcontainer{
     width: 100%;
@@ -21,7 +22,7 @@
     margin-top:50px;
 }
 .topictitleinputcontainer input{
-    width: 500px;
+    width: 494px;
 }
 .directionscontainer{
     text-align:center;
@@ -29,9 +30,16 @@
 .buttoncontainer{
     width:100%;
     text-align:center;
+    padding-top:15px;
 }
 .buttoninnercontainer{
     width:500px;
     text-align:right;
     display:inline-block;
+}
+.buttoninnercontainer button{
+    background:none;
+    border: 1px solid black;
+    padding: 5px 10px 5px 10px;
+    font-size: 15px;
 }
