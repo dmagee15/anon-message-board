@@ -13,6 +13,7 @@ export class TopiclistComponent implements OnInit {
     {title: 'How often do solar eclipses happen?', numposts: 3, lastpost: '12:37'},
     {title: 'How many species of animals are there?', numposts: 10, lastpost: '4:30'},
   ];
+  loaded = false;
   constructor() { }
 
   ngOnInit() {

@@ -71,3 +71,12 @@ table{
     padding: 8px;
     height: 30px;
 }
+.loadingTextContainer{
+    width:95%;
+    text-align:center;
+}
+.loadingText{
+    margin:0;
+    padding:20px 0px 20px 0px;
+
+}

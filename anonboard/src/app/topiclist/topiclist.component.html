@@ -14,11 +14,18 @@
       <td class="postsheader">Posts</td>
       <td class="lastpostheader">Last Post</td>
     </tr>
-    <tr *ngFor="let topic of topics">
-      <td class="topicitemtitle">{{ topic.title }}</td>
-      <td class="topicnumposts">{{ topic.numposts }}</td>
-      <td class="topiclastpost">{{ topic.lastpost }}</td>
-    </tr>
+    <ng-container *ngIf="loaded">
+      <tr *ngFor="let topic of topics">
+        <td class="topicitemtitle">{{ topic.title }}</td>
+        <td class="topicnumposts">{{ topic.numposts }}</td>
+        <td class="topiclastpost">{{ topic.lastpost }}</td>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="!loaded">
+      <td colspan="3" class="loadingTextContainer">
+        <h1 class="loadingText">Loading</h1>
+      </td>
+    </ng-container>
     <tr class="topiclistfooter">
         <td colspan="3"></td>
     </tr>
