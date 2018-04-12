@@ -9,7 +9,12 @@ import { TopicitemComponent } from './topiclist/topicitem/topicitem.component';
 import { CreatetopicComponent } from './createtopic/createtopic.component';
 import { CreatepostComponent } from './createpost/createpost.component';
 import { PostComponent } from './topic/post/post.component';
+import { Routes, RouterModule } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: '', component: TopiclistComponent },
+  { path: 'topic/:id', component: TopicComponent }
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import { PostComponent } from './topic/post/post.component';
     PostComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

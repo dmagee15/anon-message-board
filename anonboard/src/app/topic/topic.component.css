@@ -20,6 +20,9 @@
     font-weight: 600;
     color: white;
 }
+.topiclistbutton{
+    float:left;
+}
 table{
     width: 95%;
     margin:auto;
