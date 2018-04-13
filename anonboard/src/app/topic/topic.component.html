@@ -1,14 +1,21 @@
 <div class='topictitlecontainer'>
   <h1>This is the topic title.</h1>
 </div>
-<div class='buttoncontainer'>
-  <button class="topiclistbutton">
-    Topic List
-  </button>
-  <button>
-    Post Message
-  </button>
+<div class='outerbuttoncontainer'>
+    <div class='buttoncontainer'>
+      <a routerLink="/">
+          <div class="topiclistbutton">
+              Topic List
+          </div>
+      </a>
+      <a routerLink="/post">
+        <div class='postmessagebutton'>
+          Post Message
+        </div>
+      </a>
+    </div>
 </div>
+
 <div class='postscontainer'>
   <ng-container *ngIf="!loaded">
     <div class="post">
@@ -48,8 +55,9 @@
             </p>
           </div>
         </div>
-
-        <div class="postfooter">
+        <div class="post">
+            <div class="postfooter">
+            </div>
         </div>
   </ng-container>
   

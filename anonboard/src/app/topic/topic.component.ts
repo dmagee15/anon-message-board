@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topic.component.css']
 })
 export class TopicComponent implements OnInit {
-  loaded = false;
+  loaded = true;
   constructor() { }
 
   ngOnInit() {
