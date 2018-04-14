@@ -7,5 +7,8 @@ export class DataService {
     getTopics(){
        return this.http.get('/gettopiclist');
     }
+    getPosts(id: number){
+        return this.http.get('/getposts/'+id);
+     }
 
 }

@@ -30,7 +30,7 @@
   </ng-container>
 
   <ng-container *ngIf="loaded">
-      <div class="post">
+       <!-- <div class="post"> 
           <div class="postheader">
             <p>
               From: User382
@@ -52,6 +52,19 @@
           <div class="postcontent">
             <p>
               This is the content of the post. This could be either very short or several paragraphs in length.
+            </p>
+          </div>
+        </div> -->
+
+        <div *ngFor="let post of posts" class="post">
+          <div class="postheader">
+            <p>
+              From: {{ post.user }}
+            </p>
+          </div>
+          <div class="postcontent">
+            <p>
+              {{ post.content }}
             </p>
           </div>
         </div>
