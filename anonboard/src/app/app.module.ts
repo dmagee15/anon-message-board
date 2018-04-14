@@ -10,6 +10,9 @@ import { CreatetopicComponent } from './createtopic/createtopic.component';
 import { CreatepostComponent } from './createpost/createpost.component';
 import { PostComponent } from './topic/post/post.component';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
+
+import { DataService } from './data.service';
 
 const appRoutes: Routes = [
   { path: '', component: TopiclistComponent },
@@ -30,9 +33,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
