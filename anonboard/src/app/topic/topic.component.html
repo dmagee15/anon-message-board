@@ -58,8 +58,11 @@
 
         <div *ngFor="let post of posts" class="post">
           <div class="postheader">
-            <p>
+            <p class="fromuser">
               From: {{ post.user }}
+            </p>
+            <p class="date">
+              {{ post.date }}
             </p>
           </div>
           <div class="postcontent">
