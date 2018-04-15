@@ -20,12 +20,11 @@ export class CreatetopicComponent implements OnInit {
     this.dataService.submitTopic({title: this.topicTitle, content: this.topicContent}).subscribe(
       (response) => {
         console.log(response);
+        this.topicTitle = "";
+        this.topicContent = "";
+        this.router.navigate(['/topic',JSON.parse(response['_body']).id]);
       }
     );
-    console.log(this.topicTitle);
-    console.log(this.topicContent);
-    this.topicTitle = "";
-    this.topicContent = "";
-    this.router.navigate(['/']);
+    
   }
 }

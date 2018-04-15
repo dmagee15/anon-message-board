@@ -18,7 +18,7 @@
     </tr>
     <ng-container *ngIf="loaded">
       <tr *ngFor="let topic of topics">
-        <td class="topicitemtitle"><a routerLink="/topic/1">{{ topic.title }}</a></td>
+        <td class="topicitemtitle"><a [routerLink]="'topic/'+topic.id">{{ topic.title }}</a></td>
         <td class="topicnumposts">{{ topic.numposts }}</td>
         <td class="topiclastpost">{{ topic.lastpost }}</td>
       </tr>

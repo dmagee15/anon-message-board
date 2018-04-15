@@ -35,20 +35,14 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // Set our api routes
 //app.use('/api', api);
 app.get('/gettopiclist', (req, res) => {
-  var topiclist = [
-    {title: 'What is the meaning of life?', numposts: 7, lastpost: '11:37'},
-    {title: 'How many eggs are in a dozen?', numposts: 9, lastpost: '12:13'},
-    {title: 'Question about the movie Interstellar', numposts: 15, lastpost: '7:17'},
-    {title: 'How often do solar eclipses happen?', numposts: 3, lastpost: '12:37'},
-    {title: 'How many species of animals are there?', numposts: 10, lastpost: '4:30'},
-    {title: "I'm going to teach myself piano. Any Advice?", numposts: 17, lastpost: '4:35'},
-    {title: "Just made the best sauce I’ve ever made on accident", numposts: 12, lastpost: '5:37'}
-  ];
-  res.send(topiclist);
+
+  Topic.find({}, function(err,topics){
+    if(err) throw err;
+    res.send(topics.reverse());
+  });
 });
 
 app.get('/getposts/:id', (req, res) => {
-  console.log(req.params.id);
   var posts = [
     {user: 'WonderCrab372', content: 'To define routes with route parameters, simply specify the route parameters in the path of the route as shown below.'},
     {user: 'FunnyAcorn129', content: 'To have more control over the exact string that can be matched by a route parameter, you can append a regular expression in parentheses'},
@@ -60,7 +54,11 @@ app.get('/getposts/:id', (req, res) => {
     {user: 'WonderCrab372', content: 'Use the express.Router class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a “mini-app”.'},
     {user: 'FunnyAcorn129', content: 'Call the timeLog middleware function that is specific to the route.'}
   ];
-  res.send(posts);
+
+  Topic.findOne({id:req.params.id}, function(err, topic){
+    if(err) throw err;
+    res.send(topic.posts);
+  });
 });
 
 app.post('/submitpost', (req, res) => {
@@ -97,15 +95,21 @@ app.post('/submittopic', (req, res) => {
     date: date
   }
 
-  var newtopic = {
-    title: req.body.title,
-    id: 1,
-    numposts: 1,
-    lastpost: date,
-    posts: [firstpost],
-    users: users
-  }
-  res.send(newtopic);
+  Topic.find({}, function(err, topics){
+    if(err) throw err;
+
+    var newtopic = new Topic({
+      title: req.body.title,
+      id: topics.length+1,
+      numposts: 1,
+      lastpost: date,
+      posts: [firstpost],
+      users: users
+    });
+    newtopic.save();
+    res.send(newtopic);
+  });
+  
 });
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
