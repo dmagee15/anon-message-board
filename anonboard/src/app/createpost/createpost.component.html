@@ -9,11 +9,11 @@
   </div>
   <div class='textareacontainer'>
     <h3>Message Content</h3>
-      <textarea></textarea>
+      <textarea [(ngModel)]="postContent"></textarea>
   </div>
   <div class='buttoncontainer'>
     <div class='buttoninnercontainer'>
-        <button>Submit Post</button>
+        <button (click)="submitPost()">Submit Post</button>
     </div>
   </div>
 </div>

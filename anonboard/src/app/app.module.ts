@@ -18,7 +18,7 @@ import { DataService } from './data.service';
 const appRoutes: Routes = [
   { path: '', component: TopiclistComponent },
   { path: 'topic/:id', component: TopicComponent },
-  { path: 'post', component: CreatepostComponent },
+  { path: 'post/:id', component: CreatepostComponent },
   { path: 'newtopic', component: CreatetopicComponent }
 ];
 

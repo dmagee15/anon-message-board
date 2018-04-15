@@ -11,9 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 export class TopicComponent implements OnInit {
   loaded = false;
   posts = [];
+  topicid = 0;
+
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.topicid = this.route.snapshot.params['id'];
     this.dataService.getPosts(this.route.snapshot.params['id']).subscribe(
       (response) => {
         this.posts = JSON.parse(response["_body"]);

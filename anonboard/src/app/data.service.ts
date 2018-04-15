@@ -13,7 +13,7 @@ export class DataService {
     submitTopic(topic: {title: string, content: string}){
         return this.http.post('/submittopic', topic);
     }
-    submitPost(post: string){
+    submitPost(post: {id: number, content: string}){
         return this.http.post('/submitpost', post);
     }
 
