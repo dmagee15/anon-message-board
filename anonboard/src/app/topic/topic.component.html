@@ -1,5 +1,5 @@
 <div class='topictitlecontainer'>
-  <h1>This is the topic title.</h1>
+  <h1>{{ topictitle }}</h1>
 </div>
 <div class='outerbuttoncontainer'>
     <div class='buttoncontainer'>
@@ -59,7 +59,7 @@
         <div *ngFor="let post of posts" class="post">
           <div class="postheader">
             <p class="fromuser">
-              From: {{ post.user }}
+              <span>From:</span> {{ post.user }}
             </p>
             <p class="date">
               {{ post.date }}

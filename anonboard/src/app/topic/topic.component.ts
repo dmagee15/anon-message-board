@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class TopicComponent implements OnInit {
   loaded = false;
   posts = [];
+  topictitle = 'Loading';
   topicid = 0;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
@@ -19,8 +20,18 @@ export class TopicComponent implements OnInit {
     this.topicid = this.route.snapshot.params['id'];
     this.dataService.getPosts(this.route.snapshot.params['id']).subscribe(
       (response) => {
-        this.posts = JSON.parse(response["_body"]);
-        this.loaded = true;
+        if(response["_body"]){
+          this.posts = JSON.parse(response["_body"]).posts;
+          this.topictitle = JSON.parse(response["_body"]).title;
+          this.loaded = true;
+        }
+        else{
+          this.loaded = true;
+          this.topictitle = "No Topic Found";
+        }
+      },
+      () => {
+
       }
     );
   }

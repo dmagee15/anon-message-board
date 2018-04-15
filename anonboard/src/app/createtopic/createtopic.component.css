@@ -7,9 +7,11 @@
 }
 .contentcontainer{
     width:100%;
+    font-family: Arial;
 }
 .textareacontainer{
     text-align:center;
+    font-family: Arial;
 }
 .textareacontainer textarea{
     width:494px;
@@ -20,6 +22,7 @@
     width: 100%;
     text-align:center;
     margin-top:50px;
+    font-family: Arial;
 }
 .topictitleinputcontainer input{
     width: 494px;

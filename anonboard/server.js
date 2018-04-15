@@ -4,13 +4,14 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+require('dotenv').load();
 
 // Get our API routes
 //const api = require('./server/routes/api');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/anondb');
+mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
 
 var Topic = require('./models/topic.js');
@@ -46,7 +47,7 @@ app.get('/getposts/:id', (req, res) => {
 
   Topic.findOne({id:req.params.id}, function(err, topic){
     if(err) throw err;
-    res.send(topic.posts);
+    res.send(topic);
   });
 });
 
@@ -79,6 +80,7 @@ app.post('/submitpost', (req, res) => {
 	  minutes = (minutes.length==1)?"0"+minutes:minutes;
     var date = hours+":"+minutes;
 
+    var postcontent = req.body.content.replace(/\r?\n/g, '<br />');
     var newpost = {
       user: username,
       content: req.body.content,
@@ -86,14 +88,14 @@ app.post('/submitpost', (req, res) => {
     }
 
     if(isnewuser){
-      Topic.findOneAndUpdate({id:req.body.id}, { $push: { 'users': newuser, 'posts': newpost } })
+      Topic.findOneAndUpdate({id:req.body.id}, { $push: { 'users': newuser, 'posts': newpost }, $set: { 'lastpost': date }, $inc: { 'numposts':1 } })
       .exec(function (err, result) {
         if(err) throw err;
         res.send(result);
       });
     }
     else{
-      Topic.findOneAndUpdate({id:req.body.id}, { $push: { 'posts': newpost } })
+      Topic.findOneAndUpdate({id:req.body.id}, { $push: { 'posts': newpost }, $set: { 'lastpost': date }, $inc: { 'numposts':1 } })
       .exec(function (err, result) {
         if(err) throw err;
         res.send(result);

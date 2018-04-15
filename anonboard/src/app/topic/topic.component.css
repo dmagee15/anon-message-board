@@ -66,12 +66,18 @@ tr{
 }
 .fromuser{
     display:inline-block;
+    font-family: Arial;
+}
+.fromuser span{
+    color: gray;
 }
 .date{
     position: relative;
     display:block;
     right: 15px;
     float:right;
+    font-family: Arial;
+    font-weight: 500;
 }
 .postcontent{
     min-height:30px;
@@ -83,7 +89,9 @@ tr{
 }
 .postcontent p{
     margin:0;
-    padding:15px 0px 15px 10px;
+    padding:0px 0px 15px 10px;
+    line-height: 100%;
+    white-space: pre-line;
 }
 .postcontentloading{
     text-align:center;
