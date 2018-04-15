@@ -3,11 +3,27 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 // Get our API routes
 //const api = require('./server/routes/api');
 
 const app = express();
+
+mongoose.connect('mongodb://localhost:27017/anondb');
+mongoose.Promise = global.Promise;
+
+var Topic = require('./models/topic.js');
+
+var adjectiveList = ['Arid','Bold','Cold','Cool','Dim','Dry','Frail','Evil','Good','Gross','Hot',
+'High','Ill','Grown','Long','Healthy','Mild','Jaded','Junior','Kind','Lazy','Lonely','Meek','Moral',
+'Nice','Mad','Open','Icy','Old','Poor','Oval','Rich','Ripe','Rude','Sad','Safe','Smart','Torn','Tall','Ugly','Weak',
+'Warm','Wet','Zany','Key','Late','Neat','Oily','Able','Apt'];
+
+var nounList = ['Cat','Dog','Car','Wall','Door','Rock','Dust','Can','Rain','Cloud','Sheet','Brush','Fire',
+'Fan','Job','Knob','Mind','Key','Home','Store','Bag','Tire','Bean','Rice','Fruit','Sand','Phone','Shoe',
+'Band','String','Flute','Book','Bar','Drink','Plate','Show','Cash','Frame','Tan','Trash','Bin','Bus','Bird',
+'Egg','Test','Coda','Song','Cup','Tape','Circle'];
 
 // Parsers for POST data
 app.use(bodyParser.json());
@@ -45,6 +61,51 @@ app.get('/getposts/:id', (req, res) => {
     {user: 'FunnyAcorn129', content: 'Call the timeLog middleware function that is specific to the route.'}
   ];
   res.send(posts);
+});
+
+app.post('/submitpost', (req, res) => {
+  var newpost = {
+    user: '',
+    content: ''
+  }
+  res.send(newpost);
+});
+
+app.post('/submittopic', (req, res) => {
+
+  var ip = req.headers['x-forwarded-for'] || 
+     req.connection.remoteAddress || 
+     req.socket.remoteAddress ||
+     (req.connection.socket ? req.connection.socket.remoteAddress : null);
+
+  var username = adjectiveList[Math.floor(Math.random()*50)]+nounList[Math.floor(Math.random()*50)]+Math.floor(Math.random()*100);
+
+  var newuser = {};
+  newuser[ip] = username;
+  var users = [newuser];
+
+  var time = new Date();
+	var hours = ""+time.getHours();
+	hours = (hours.length==1)?"0"+hours:hours;
+	var minutes = ""+time.getMinutes();
+	minutes = (minutes.length==1)?"0"+minutes:minutes;
+  var date = hours+":"+minutes;
+
+  var firstpost = {
+    user: username,
+    content: req.body.content,
+    date: date
+  }
+
+  var newtopic = {
+    title: req.body.title,
+    id: 1,
+    numposts: 1,
+    lastpost: date,
+    posts: [firstpost],
+    users: users
+  }
+  res.send(newtopic);
 });
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

@@ -11,6 +11,7 @@ import { CreatepostComponent } from './createpost/createpost.component';
 import { PostComponent } from './topic/post/post.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { DataService } from './data.service';
 
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [DataService],

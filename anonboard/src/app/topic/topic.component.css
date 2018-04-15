@@ -98,7 +98,7 @@ tr{
 .postfooter{
     min-height: 30px;
     background-color:rgb(234, 238, 238);
-    margin:0;
+    margin:0px 0px 35px 0px;;
     padding:0;
     border: 1px solid gray;
 }

@@ -9,15 +9,15 @@
     </div>
     <div class='topictitleinputcontainer'>
       <h3>Topic Title</h3>
-      <input type='text'>
+      <input type='text' [(ngModel)]="topicTitle">
     </div>
     <div class='textareacontainer'>
       <h3>Message Content</h3>
-        <textarea></textarea>
+        <textarea [(ngModel)]="topicContent"></textarea>
     </div>
     <div class='buttoncontainer'>
       <div class='buttoninnercontainer'>
-          <button>Submit Topic</button>
+          <button (click)="submitTopic()">Submit Topic</button>
       </div>
     </div>
   </div>

@@ -9,6 +9,12 @@ export class DataService {
     }
     getPosts(id: number){
         return this.http.get('/getposts/'+id);
-     }
+    }
+    submitTopic(topic: {title: string, content: string}){
+        return this.http.post('/submittopic', topic);
+    }
+    submitPost(post: string){
+        return this.http.post('/submitpost', post);
+    }
 
 }
