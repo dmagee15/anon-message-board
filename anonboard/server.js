@@ -59,6 +59,7 @@ app.post('/submitpost', (req, res) => {
      req.connection.remoteAddress || 
      req.socket.remoteAddress ||
      (req.connection.socket ? req.connection.socket.remoteAddress : null);
+    ip = ip.replace(/\./g, '_');
 
     var isnewuser = true;
     var username = adjectiveList[Math.floor(Math.random()*50)]+nounList[Math.floor(Math.random()*50)]+Math.floor(Math.random()*100);
@@ -111,6 +112,7 @@ app.post('/submittopic', (req, res) => {
      req.connection.remoteAddress || 
      req.socket.remoteAddress ||
      (req.connection.socket ? req.connection.socket.remoteAddress : null);
+  ip = ip.replace(/\./g, '_');
 
   var username = adjectiveList[Math.floor(Math.random()*50)]+nounList[Math.floor(Math.random()*50)]+Math.floor(Math.random()*100);
 
