@@ -2,26 +2,58 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
-## Development server
+## Live App URL
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[https://dmagee-anonboard.herokuapp.com/](https://dmagee-anonboard.herokuapp.com/)
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+What things you need to have installed
 
-## Running unit tests
+```
+Node.js v6.11.2 or greater
+MongoDB v2.6.12 or greater
+npm v3.10.10 or greater
+angular/cli v1.7.3 or greater
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installing
 
-## Running end-to-end tests
+1. Click the fork button on the upper right hand corner of this repository.
+2. Open the command line, navigate to the directory of your choice and type:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+git clone https://github.com/yourUsername/anon-message-board.git
+```
 
-## Further help
+where 'yourUsername' is your github username.
+Afterwards, install the dependencies by entering the following in the project directory:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+npm install
+```
+
+Create a new .env file in the local repository directory with the following contents:
+
+```
+MONGO_URI=mongodb://localhost:27017/anondb
+```
+
+Run MongoDB in a separate command line window by navigating to where MongoDB
+is installed and enter the following:
+
+```
+mongod.exe
+```
+
+Start the server by navigating to the project directory and enter the following:
+
+```
+node server.js
+```
+
+You can then open the project in a browser by navigating to http://localhost:3000/
